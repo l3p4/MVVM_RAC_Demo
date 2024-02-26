@@ -20,6 +20,10 @@
 		F4CC01D42B79F248006C758B /* RACDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01D32B79F248006C758B /* RACDemoTests.m */; };
 		F4CC01DE2B79F248006C758B /* RACDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01DD2B79F248006C758B /* RACDemoUITests.m */; };
 		F4CC01E02B79F248006C758B /* RACDemoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01DF2B79F248006C758B /* RACDemoUITestsLaunchTests.m */; };
+		F4CC01F62B7CA782006C758B /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01F52B7CA782006C758B /* ProductModel.m */; };
+		F4CC01F92B7CA7A4006C758B /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01F82B7CA7A4006C758B /* ProductTableViewCell.m */; };
+		F4CC01FC2B7CA7C2006C758B /* ProductViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01FB2B7CA7C2006C758B /* ProductViewModel.m */; };
+		F4CC01FF2B7CAB3C006C758B /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CC01FE2B7CAB3C006C758B /* ProductViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,14 @@
 		F4CC01D92B79F248006C758B /* RACDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CC01DD2B79F248006C758B /* RACDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACDemoUITests.m; sourceTree = "<group>"; };
 		F4CC01DF2B79F248006C758B /* RACDemoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACDemoUITestsLaunchTests.m; sourceTree = "<group>"; };
+		F4CC01F42B7CA782006C758B /* ProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductModel.h; sourceTree = "<group>"; };
+		F4CC01F52B7CA782006C758B /* ProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
+		F4CC01F72B7CA7A4006C758B /* ProductTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
+		F4CC01F82B7CA7A4006C758B /* ProductTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
+		F4CC01FA2B7CA7C2006C758B /* ProductViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductViewModel.h; sourceTree = "<group>"; };
+		F4CC01FB2B7CA7C2006C758B /* ProductViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductViewModel.m; sourceTree = "<group>"; };
+		F4CC01FD2B7CAB3C006C758B /* ProductViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		F4CC01FE2B7CAB3C006C758B /* ProductViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +118,6 @@
 				C8A3BD0692F9FB92AF89AA8A /* Pods-RACDemoTests.debug.xcconfig */,
 				D04E520F9D276D6B50528AE8 /* Pods-RACDemoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -151,6 +162,7 @@
 				F4CC01BB2B79F246006C758B /* SceneDelegate.m */,
 				F4CC01BD2B79F246006C758B /* ViewController.h */,
 				F4CC01BE2B79F246006C758B /* ViewController.m */,
+				F4CC01EC2B7CA6B1006C758B /* TableView */,
 				F4CC01C02B79F246006C758B /* Main.storyboard */,
 				F4CC01C32B79F248006C758B /* Assets.xcassets */,
 				F4CC01C52B79F248006C758B /* LaunchScreen.storyboard */,
@@ -175,6 +187,53 @@
 				F4CC01DF2B79F248006C758B /* RACDemoUITestsLaunchTests.m */,
 			);
 			path = RACDemoUITests;
+			sourceTree = "<group>";
+		};
+		F4CC01EC2B7CA6B1006C758B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				F4CC01EF2B7CA752006C758B /* Controller */,
+				F4CC01EE2B7CA752006C758B /* Model */,
+				F4CC01ED2B7CA752006C758B /* View */,
+				F4CC01F02B7CA752006C758B /* ViewModel */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		F4CC01ED2B7CA752006C758B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4CC01F72B7CA7A4006C758B /* ProductTableViewCell.h */,
+				F4CC01F82B7CA7A4006C758B /* ProductTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4CC01EE2B7CA752006C758B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4CC01F42B7CA782006C758B /* ProductModel.h */,
+				F4CC01F52B7CA782006C758B /* ProductModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F4CC01EF2B7CA752006C758B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4CC01FD2B7CAB3C006C758B /* ProductViewController.h */,
+				F4CC01FE2B7CAB3C006C758B /* ProductViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4CC01F02B7CA752006C758B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4CC01FA2B7CA7C2006C758B /* ProductViewModel.h */,
+				F4CC01FB2B7CA7C2006C758B /* ProductViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,8 +475,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4CC01BF2B79F246006C758B /* ViewController.m in Sources */,
+				F4CC01F62B7CA782006C758B /* ProductModel.m in Sources */,
+				F4CC01FF2B7CAB3C006C758B /* ProductViewController.m in Sources */,
+				F4CC01FC2B7CA7C2006C758B /* ProductViewModel.m in Sources */,
 				F4CC01B92B79F246006C758B /* AppDelegate.m in Sources */,
 				F4CC01CA2B79F248006C758B /* main.m in Sources */,
+				F4CC01F92B7CA7A4006C758B /* ProductTableViewCell.m in Sources */,
 				F4CC01BC2B79F246006C758B /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,9 +6,10 @@
 //
 
 #import "ViewController.h"
+#import "ProductViewController.h"
 #import <ReactiveObjC.h>
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 @property (weak, nonatomic) IBOutlet UITextField *textF;
 
@@ -21,7 +22,9 @@
     
     [self testBtn];
     [self testTextField];
-    
+    [self testNoti];
+    [self testDeletage];
+    [self testKVO];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -42,9 +45,14 @@
     }];
 }
 
+
 -(void)testBtn{
+    @weakify(self)
     [[self.btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        NSLog(@"%@",x);
+        @strongify(self);
+        ProductViewController *vc = [[ProductViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        vc.title = @"ProductTableVC";
     }];
 }
 
@@ -54,4 +62,25 @@
     }];
 }
 
+-(void)testNoti{
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardDidShowNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+            
+        NSLog(@"UIKeyboardDidShowNotification");
+    }];
+}
+
+-(void)testDeletage{
+    [[self rac_signalForSelector:@selector(textFieldDidBeginEditing:) fromProtocol:@protocol(UITextFieldDelegate)] subscribeNext:^(RACTuple * _Nullable x) {
+        NSLog(@"textFieldDidBeginEditing");
+    }];
+    self.textF.delegate = self;
+}
+
+-(void)testKVO{
+    [RACObserve(self, title) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+    NSLog(@"will modify title");
+    self.title = @"modify title";
+}
 @end
