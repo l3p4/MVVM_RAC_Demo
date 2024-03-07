@@ -6,35 +6,37 @@
 //
 
 #import "AppDelegate.h"
+#import "RACDemo-Swift.h"
 
 @interface AppDelegate ()
+
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [self setupWindow];
+    [self.window makeKeyAndVisible];
+    [self configScrollViewAdjustSafeArea];
+    
     return YES;
 }
 
-
-#pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+- (UIWindow *)setupWindow {
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    EntryVC *VC = [[EntryVC alloc] init];
+    UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:VC];
+    window.rootViewController = navC;
+    return window;
 }
 
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+- (void)configScrollViewAdjustSafeArea {
+    // 设置全局的 contentInsetAdjustmentBehavior
+    if (@available(iOS 11.0, *)) {
+        [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
+    }
 }
-
 
 @end

@@ -7,7 +7,7 @@ target 'RACDemo' do
 
   # Pods for RACDemo
   pod 'ReactiveObjC', '~> 3.0.0'
-  
+  pod 'SnapKit'
 
   target 'RACDemoTests' do
     inherit! :search_paths
